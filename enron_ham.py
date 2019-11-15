@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Mar  3 18:15:00 2019
+Created on Sunday Mar  3 18:15:00 2019
 
 @author: mmval
 """
