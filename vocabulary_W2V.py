@@ -5,20 +5,6 @@ Created on Mon Jun 24 16:06:56 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jun 23 20:35:18 2019
-
-@author: mmval
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun 12 20:37:54 2019
-
-@author: mmval
-"""
-
 from collections import Counter
 from nltk.corpus import stopwords
 import pandas as pd
@@ -47,7 +33,7 @@ import gensim
 #main_dir='C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/GenSpam/GenSpamFull/'
 
 
-#j=0
+
 model = gensim.models.KeyedVectors.load_word2vec_format('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/GoogleNews-vectors-negative300.bin', binary=True)
 
 main_dir='C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/'
