@@ -5,19 +5,6 @@ Created on Tue May  7 17:05:00 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Feb 22 10:19:57 2019
-
-@author: mmval
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 12 12:51:22 2019
-
-@author: mmval
-"""
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import normalize
@@ -68,13 +55,6 @@ def minmax(corpus):
     for i in range(len(corpus)):
         corpus[i]=(corpus[i]-np.amin(corpus[i]))/(np.amax(corpus[i])-np.amin(corpus[i]))
     return corpus   
-    
-# =============================================================================
-# def read_labels(label_file1, labels):
-#     with open(label_file1,'r',encoding='utf-8') as label_reader1:
-#         for line in label_reader1:
-#             labels.append(line.strip())
-# =============================================================================
 
 model = gensim.models.KeyedVectors.load_word2vec_format('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/GoogleNews-vectors-negative300.bin', binary=True)
         
@@ -126,13 +106,8 @@ test_labels=np.array(test_labels)
 
 
 
-#vectorize train set
+
 train_time = time.time()
-#vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-#train_tfidf = vec.fit_transform(train_corpus)
-
-#adapt_tfidf = vec.transform(adapt_corpus)
-
 
 #cs = [0.1, 1.0, 10.0, 100.0] #Logistic regression, SVM
 cs = [5,10,15,20] #Random forrest
@@ -161,9 +136,6 @@ train_corpus.extend(adapt_corpus)
 train_labels.extend(adapt_labels)
 
 test_time=time.time()
-#vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-#train_tfidf = vec.fit_transform(train_corpus)
-#test_tfidf = vec.transform(test_corpus)
 
 #clf = LogisticRegression(C=best_c, penalty='l2', solver='liblinear')
 #clf = svm.LinearSVC(C=best_c)
