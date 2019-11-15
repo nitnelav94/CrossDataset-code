@@ -66,6 +66,6 @@ for line in text:
 for line in labels:
     archiv_lab.write(line+'\n')
     
-#archiv_text.close()
-#archiv_lab.close()
+archiv_text.close()
+archiv_lab.close()
 
