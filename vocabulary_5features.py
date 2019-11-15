@@ -5,13 +5,6 @@ Created on Sun Jun 23 20:35:18 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun 12 20:37:54 2019
-
-@author: mmval
-"""
-
 from collections import Counter
 from nltk.corpus import stopwords
 import pandas as pd
