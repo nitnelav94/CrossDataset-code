@@ -5,19 +5,6 @@ Created on Sun May 26 15:21:21 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Feb 22 10:19:57 2019
-
-@author: mmval
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 12 12:51:22 2019
-
-@author: mmval
-"""
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import normalize
@@ -89,13 +76,7 @@ def read_file(email_file1,email_file2,corpus,label_file1, label_file2, labels,mo
         print(len(z))
         #print(z)
 
-# =============================================================================
-#         for w,line in enumerate(label_reader1):
-#               if w not in z:
-#                   labels.append(line.strip())
-#         print(w)
-# =============================================================================
-                  
+              
         for x,line in enumerate(label_reader2):
               if x not in z:
                   labels.append(line.strip())
@@ -107,20 +88,7 @@ def minmax(corpus):
         corpus[i]=(corpus[i]-np.amin(corpus[i]))/(np.amax(corpus[i])-np.amin(corpus[i]))
     return corpus
 
-"""       
-def read_labels(label_file1, label_file2, labels):
-    with open(label_file1,'r',encoding='utf-8') as label_reader1, open(label_file2,'r',encoding='utf-8') as label_reader2:
-        i=0
-        for line in label_reader1:
-            labels.append(line.strip())
-            i=i+1
-        print(label_file1,i)
-        i=0
-        for line in label_reader2:
-            labels.append(line.strip())
-            i=i+1
-        print(label_file2,i)
-"""
+
         
         
 
