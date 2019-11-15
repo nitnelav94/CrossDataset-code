@@ -1,6 +1,6 @@
 # *- coding: utf-8 -*-
 """
-Created on Thu Feb 14 11:52:23 2019
+Created on Thursday Feb 14 11:52:23 2019
 
 @author: mmval
 """
@@ -66,6 +66,7 @@ for i in range(10):
     docs.append(main_dir+'/part'+str(i+1)+'/data_'+c+'_part'+str(i+1)+'_words.txt')
     lab.append(main_dir+'/part'+str(i+1)+'/labels_'+c+'_part'+str(i+1)+'.txt')
 """
+
 #Para LingSpam
 
 main_dir='C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/lingspam_public/bare'#+c
