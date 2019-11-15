@@ -22,31 +22,7 @@ import numpy as np
 import time
 import codecs
 
-"""
-h=[.1,-.02,.32,-.4]
-h=np.array(h)
-w=[-.5,.006,.7,-.08]
-w=np.array(w)
-r=np.zeros(4)
-r=h+w
-print(r)
-min_max_scaler = preprocessing.MinMaxScaler()
-X= min_max_scaler.fit_transform(h.reshape(1,-1))
-y= min_max_scaler.fit_transform(h.reshape(1,-1))
-print(X)
-print(y)
-a=' '.join(str(item) for item in X[0])
-print(a)
-
-"""
-#normalizar al final de terner la matriz
-
-
 # Load Google's pre-trained Word2Vec model.
-
-#deprecated
-#model = gensim.models.Word2Vec.load_word2vec_format('./model/GoogleNews-vectors-negative300.bin', binary=True)
-
 model = gensim.models.KeyedVectors.load_word2vec_format('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/GoogleNews-vectors-negative300.bin', binary=True)
 
 #FOR SPAMASSASSIN
@@ -159,16 +135,7 @@ for train_index, test_index in skf.split(corpus, labels):
     data_train = [corpus[x] for x in train_index]
     data_test = [corpus[x] for x in test_index]
     labels_train, labels_test = labels[train_index], labels[test_index]
-    
-    #min_dif=1 ignora palabras que aparezcan menos de una vez
-    #norm=l1 norma utilizada para normalizar los vectores
-    #analyzer=word indica que las caracteristicas estaran echas de palabras
-    #tokenizer= my_tokenizer separa por palabras 
-    #vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-    
-    #aprende el vocabulario y la frecuencia inversa del documento (idf), 
-    #regresa la matriz termino-documento 
-    #train_tfidf = vec.fit_transform(data_train)#
+
     
     """
     #cs = [0.1, 1.0, 10.0, 100.0] #Logistic regression, SVM
@@ -230,8 +197,7 @@ stop = time.time()
 print('Trainin time = '+str((train2 - train)/60))
 print('Testing time = '+str((stop - test)/60))
     
-#skf = StratifiedKFold(n_splits=10, random_state=3)
-#scores_txt = cross_val_score(clf, corpus_tfidf, labels, scoring='f1_macro', cv=skf)
+
 print('Accuracy: %0.2f (+/- %0.2f)' % (np.mean(accuracies), np.std(accuracies) * 2))
 print('Precision: %0.2f (+/- %0.2f)' % (np.mean(precisions), np.std(precisions) * 2))
 print('Recall: %0.2f (+/- %0.2f)' % (np.mean(recalls), np.std(recalls) * 2))
