@@ -73,18 +73,7 @@ hash_file = main_dir+'/'+dataSet+'_hashtags.txt'
 at_file = main_dir+'/'+dataSet+'_ats.txt'
 link_file = main_dir+'/'+dataSet+'_links.txt'
 
-"""
-ruta='Enron'
-dataSet='enron'#+month
 
-main_dir='C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/'+ruta
-text_file = main_dir+'/full_data.txt'
-words_file = main_dir+'/'+dataSet+'_words2.txt'
-emo_file = main_dir+'/'+dataSet+'_emoticons2.txt'
-hash_file = main_dir+'/'+dataSet+'_hashtags2.txt'
-at_file = main_dir+'/'+dataSet+'_ats2.txt'
-link_file = main_dir+'/'+dataSet+'_links2.txt'
-"""
 
 
 i = 0
