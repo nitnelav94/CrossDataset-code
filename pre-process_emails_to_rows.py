@@ -48,7 +48,7 @@ source='contenido.txt'
 
 i=0
 archivo=codecs.open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/pu_corpora_public/pua/part10/data_pua_part10.txt','w','utf-8')
-#archivo=open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/SpamArchive/2018/01/data_SpamArchive_2018_01.txt','w')
+
 
 
 archivo_error=codecs.open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/pu_corpora_public/pua/part10/data_pua_part10_error.txt','w','utf8')
