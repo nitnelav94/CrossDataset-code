@@ -5,22 +5,8 @@ Created on Tue May  7 17:05:00 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Feb 22 10:19:57 2019
-
-@author: mmval
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 12 12:51:22 2019
-
-@author: mmval
-"""
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import cross_val_score
-#from sklearn.preprocessing import normalize
 from sklearn import svm
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
@@ -43,7 +29,6 @@ def read_file(email_file1, corpus):
             tokens=line.rstrip().split()
             #for words
             #text=' '.join([token for token in tokens if token not in StopWords and len(token)>3 and len(token)<35])
-            #
             text=' '.join([token for token in tokens])
             corpus.append(text)
 
