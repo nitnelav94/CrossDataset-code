@@ -31,18 +31,6 @@ archiv_text=codecs.open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesi
 archiv_lab=codecs.open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/Enron/full_lab.txt','w','utf-8')
 
 
-"""
-text=''
-with open(enron_spam,'r',encoding='utf-8') as r1, open(enron_ham,'r',encoding='utf-8') as r2:
-    for line in r1:
-        text+=line
-    for line in r2:
-        text+=line
-        
-archiv_text.write(line)
-
-i=1
-"""
 text=[]
 labels=[]
 for i in range(7):
