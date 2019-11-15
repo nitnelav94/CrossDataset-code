@@ -5,12 +5,6 @@ Created on Sat Jun 22 16:08:53 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jun 17 18:15:04 2019
-
-@author: mmval
-"""
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import normalize
@@ -49,7 +43,7 @@ def read_file(email_file,feature):#,model):
                     
 
 
-#model = gensim.models.KeyedVectors.load_word2vec_format('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/GoogleNews-vectors-negative300.bin', binary=True)
+
 
 main_dir='C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/'
 
@@ -66,12 +60,10 @@ for email1 in emails1:
         data2=set()
         
         print(email1,email2)
-        #print(len(email1),len(email2))
+
         email_file1=main_dir+email1+feature+'.txt'
         email_file2=main_dir+email2+feature+'.txt'
         
-        #data1=read_file(email_file1,feature)
-        #data1=set(data1)
         
         if email1!=email2:    
             data1=read_file(email_file1,feature)#,model)
