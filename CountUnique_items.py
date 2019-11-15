@@ -97,17 +97,3 @@ for feature in features:
 df = pd.DataFrame(data={"hashtags": inf[0], "words": inf[1],'links':inf[2],'ats':inf[3],'emoticons':inf[4]})
 df.to_csv(file, sep=',',index=False)
 
-
-
-"""
-import csv
-import pandas as pd
-
-file ='C:/Users/mmval/Documents/Semestre Enero-Junio 2019/test.csv'
-data=pd.read_csv(file)
-data.head()
-data.insert(2,'hola',3,4)
-data.to_csv(file)
-data.head()
-"""
-
