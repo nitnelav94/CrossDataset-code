@@ -5,12 +5,6 @@ Created on Mon May 27 10:03:33 2019
 @author: mmval
 """
 
-# *- coding: utf-8 -*-
-"""
-Created on Thu Feb 14 11:52:23 2019
-
-@author: mmval
-"""
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import normalize
@@ -67,19 +61,6 @@ def minmax(corpus):
         corpus[i]=(corpus[i]-np.amin(corpus[i]))/(np.amax(corpus[i])-np.amin(corpus[i]))
     return corpus
 
-# =============================================================================
-# def read_labels(files):
-#     labels=[]
-#     for file in files:
-#         with open(file,'r',encoding='utf-8') as label_reader:
-#             for line in label_reader:
-#                 labels.append(line.strip())
-#             #labels=np.array(labels)
-#     return labels
-#           
-# 
-# =============================================================================
-      
 start = time.time()
 
 #For PU
@@ -136,6 +117,7 @@ for w in range(len(docs)):
     
     corpus_test,labels_test=read_data(data_test,lab_test,model)
     corpus_test=np.array(corpus_test)
+    
     #next line just for NB only
     corpus_test=minmax(corpus_test)
     cropus_test=normalize(corpus_test,norm='l2')
@@ -144,13 +126,6 @@ for w in range(len(docs)):
     
     start1 = time.time()
     
-    #min_dif=1 ignora palabras que aparezcan menos de una vez
-    #norm=l1 norma utilizada para normalizar los vectores
-    #analyzer=word indica que las caracteristicas estaran echas de palabras
-    #tokenizer= my_tokenizer separa por palabras 
-    #vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-    
-    #train_tfidf = vec.fit_transform(corpus_train)#
     """
     #cs = [0.1, 1.0, 10.0, 100.0] #Logistic regression, SVM
     #cs = [5,10,15,20] #Random forrest
@@ -192,7 +167,7 @@ for w in range(len(docs)):
     #clf = KNeighborsClassifier(n_neighbors=best_c, algorithm = 'brute', metric='cosine')
     clf = MultinomialNB()
     clf.fit(corpus_train, labels_train)
-    #test_tfidf = vec.transform(corpus_test)#
+   
     predicted = clf.predict(corpus_test)
     accuracy = metrics.accuracy_score(labels_test, predicted)
     precision = metrics.precision_score(labels_test, predicted, average='macro')
