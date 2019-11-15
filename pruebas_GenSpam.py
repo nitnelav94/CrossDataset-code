@@ -5,12 +5,6 @@ Created on Fri Feb 22 10:19:57 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 12 12:51:22 2019
-
-@author: mmval
-"""
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import cross_val_score
 #from sklearn.preprocessing import normalize
