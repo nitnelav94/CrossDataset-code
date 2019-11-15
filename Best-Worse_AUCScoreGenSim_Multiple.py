@@ -5,26 +5,6 @@ Created on Fri Jun 14 15:52:44 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May  7 17:05:00 2019
-
-@author: mmval
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Feb 22 10:19:57 2019
-
-@author: mmval
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 12 12:51:22 2019
-
-@author: mmval
-"""
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import normalize
@@ -79,12 +59,8 @@ def minmax(corpus):
 
 
 def build_model(train_corpus,train_labels,adapt_corpus,adapt_labels,test_corpus,test_labels,model):
-    #vectorize train set
     train_time = time.time()
-    #vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-    #train_tfidf = vec.fit_transform(train_corpus)
-    
-    #adapt_tfidf = vec.transform(adapt_corpus)
+
     
     if model=='lr' or model=='svm':
         cs = [0.1, 1.0, 10.0, 100.0] #Logistic regression, SVM
@@ -122,10 +98,7 @@ def build_model(train_corpus,train_labels,adapt_corpus,adapt_labels,test_corpus,
     train_labels.extend(adapt_labels)
 
     test_time=time.time()
-    #vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-    #train_tfidf = vec.fit_transform(train_corpus)
-    #test_tfidf = vec.transform(test_corpus)
-    
+
     
     if model=='lr':
         clf = LogisticRegression(C=best_c, penalty='l2', solver='liblinear')
@@ -170,12 +143,6 @@ def build_model(train_corpus,train_labels,adapt_corpus,adapt_labels,test_corpus,
     archivo_resultados.write('\nAUC: %0.2f' % roc)
     archivo_resultados.write('\n\n\n')
     
-# =============================================================================
-# def read_labels(label_file1, labels):
-#     with open(label_file1,'r',encoding='utf-8') as label_reader1:
-#         for line in label_reader1:
-#             labels.append(line.strip())
-# =============================================================================
 
 model = gensim.models.KeyedVectors.load_word2vec_format('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/GoogleNews-vectors-negative300.bin', binary=True)
         
@@ -238,91 +205,3 @@ for model in models:
     build_model(train_corpus,train_labels,adapt_corpus,adapt_labels,test_corpus,test_labels,model)
     
     
-"""    
-    #vectorize train set
-    train_time = time.time()
-    #vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-    #train_tfidf = vec.fit_transform(train_corpus)
-    
-    #adapt_tfidf = vec.transform(adapt_corpus)
-    
-    if model=='lr' or model=='svm':
-        cs = [0.1, 1.0, 10.0, 100.0] #Logistic regression, SVM
-    if model=='rf':
-        cs = [5,10,15,20] #Random forrest
-    if model=='knn':
-        cs = [1, 2, 3, 5, 10] #KNN
-        
-    best_c = 0
-    best_score = 0
-    
-    if model!='nb':
-        for c in cs:
-            if model=='lr':
-                clf= LogisticRegression(C=c, penalty='l2', solver='liblinear')
-            if model=='svm':
-                clf = svm.LinearSVC(C=c)
-
-            if model=='rf':
-                clf = RandomForestClassifier(n_estimators=c, n_jobs=-1)
-            if model=='knn':
-                clf = KNeighborsClassifier(n_neighbors=c, algorithm = 'brute', metric='cosine')
-            clf.fit(train_corpus, train_labels)
-            predicted = clf.predict(adapt_corpus)
-            score = metrics.f1_score(adapt_labels, predicted, average='macro')
-            if score > best_score:
-                best_score = score
-                best_c = c
-   
-    train_time2 = time.time()
-
-    train_corpus=list(train_corpus)
-    train_labels=list(train_labels)
-    train_corpus.extend(adapt_corpus)
-    train_labels.extend(adapt_labels)
-
-    test_time=time.time()
-    #vec = TfidfVectorizer(min_df=1, norm='l2', analyzer = 'word', tokenizer=my_tokenizer)
-    #train_tfidf = vec.fit_transform(train_corpus)
-    #test_tfidf = vec.transform(test_corpus)
-    
-    
-    if model=='lr':
-        clf = LogisticRegression(C=best_c, penalty='l2', solver='liblinear')
-    if model=='svm':
-        clf = svm.LinearSVC(C=best_c)
-    if model=='nb':
-        clf = MultinomialNB()
-    if model=='rf':
-        clf = RandomForestClassifier(n_estimators=best_c, n_jobs=-1)
-    if model=='knn':
-        clf = KNeighborsClassifier(n_neighbors=best_c, algorithm = 'brute', metric='cosine')
-    clf.fit(train_corpus, train_labels)
-    predicted = clf.predict(test_corpus)
-    accuracy = metrics.accuracy_score(test_labels, predicted)
-    precision = metrics.precision_score(test_labels, predicted, average='macro')
-    recall = metrics.recall_score(test_labels, predicted, average='macro')
-    f1_macro = metrics.f1_score(test_labels, predicted, average='macro')
-    kappa = metrics.cohen_kappa_score(test_labels, predicted)
-    roc = metrics.roc_auc_score(test_labels.astype(int), predicted.astype(int))
-    test_time2 = time.time()
-    
-
-    print('Training time = '+str((train_time2 - train_time)/60))
-    print('Testing time = '+str((test_time2 - test_time)/60))
-    print('Accuracy: %0.2f' % accuracy)
-    print('Precision: %0.2f'% precision)
-    print('Recall: %0.2f' % recall)
-    print('F1: %0.2f' % f1_macro)
-    print('Kappa: %0.2f'% kappa)
-    print('AUC: %0.2f'% roc)
-    
-    archivo_resultados.write('\nAccuracy: %0.2f' % accuracy)
-    archivo_resultados.write('\nPrecision: %0.2f' % precision)
-    archivo_resultados.write('\nRecall: %0.2f' % recall)
-    archivo_resultados.write('\nF1: %0.2f' % f1_macro)
-    archivo_resultados.write('\nKappa: %0.2f' % kappa)
-    archivo_resultados.write('\nAUC: %0.2f' % roc)
-    archivo_resultados.write('\n\n\n')  
-    
-"""
