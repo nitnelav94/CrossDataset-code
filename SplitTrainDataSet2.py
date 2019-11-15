@@ -5,17 +5,10 @@ Created on Tue May  7 20:04:34 2019
 @author: mmval
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May  7 11:51:47 2019
-
-@author: mmval
-"""
-
 import numpy as np
 import codecs
 
-#66629726
+
 d='trec07p'
 main_dir='C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/trec07p/data/files_trec07p_data/'
 data_file=main_dir+d+'_words.txt'
