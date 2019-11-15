@@ -11,9 +11,6 @@ source='cleaned_index.txt'
 
 i=0
 archivo_labels=codecs.open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/trec07p/data/files_trec07p_data/labels_trec07p.txt','w','utf-8')
-#archivo_new_data=codecs.open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/SpamBase_v1/new_data_SpamBase.txt','w','utf-8')
-#archivo=open('C:/Users/mmval/Documents/Semestre Enero-Junio 2019/Tesis/DataSets/SpamArchive/2018/01/data_SpamArchive_2018_01.txt','w')
-
 
 with open(main_dir+source,'r',encoding="utf-8") as content_file:
     for lines in content_file:
