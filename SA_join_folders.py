@@ -41,5 +41,6 @@ for lb in labels:
     archiv_lab.write(lb)
 
 
-    
+archiv_lab.close()
+archiv_text.close()
     
