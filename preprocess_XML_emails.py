@@ -49,7 +49,7 @@ f='\n'.join(l)
 f=re.sub(r'</*\w+>','',f)
 f=re.sub('[.\w+]*<(.*?)>','',f)
 
-#f=re.sub('\s\n',' ',f)
+
 
 archivo.write(f)
 print(f)
